@@ -1,14 +1,16 @@
-package org.butter.calendar.calendar;
+package org.butter.calendar.calendar.month;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 
+import org.butter.calendar.calendar.month.MonthCalendarView;
+import org.butter.calendar.calendar.month.MonthView;
 import org.joda.time.DateTime;
 
 /**
@@ -23,17 +25,15 @@ class MonthAdapter extends PagerAdapter {
     private SparseArray<MonthView> mViews;
     private Context mContext;
     private MonthCalendarView mMonthCalendarView;
-    private AttributeSet mAttrs;
     /**
      * 显示的月份数，当前月份在中间
      */
     private int mMonthCount = 1000;
 
-    MonthAdapter(Context context, MonthCalendarView monthCalendarView, AttributeSet attrs) {
+    MonthAdapter(Context context, MonthCalendarView monthCalendarView) {
         mContext = context;
         mMonthCalendarView = monthCalendarView;
         mViews = new SparseArray<>();
-        mAttrs = attrs;
     }
 
     @Override
@@ -45,11 +45,10 @@ class MonthAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         if (mViews.get(position) == null) {
             int date[] = getYearAndMonth(position);
-            MonthView monthView = new MonthView(mContext, mAttrs, date[0], date[1]);
+            MonthView monthView = new MonthView(mContext, date[0], date[1], mMonthCalendarView);
             monthView.setId(position);
             monthView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
             monthView.invalidate();
-            monthView.setOnDateClickListener(mMonthCalendarView);
             mViews.put(position, monthView);
         }
 
@@ -84,4 +83,8 @@ class MonthAdapter extends PagerAdapter {
         return mMonthCount;
     }
 
+    @Override
+    public int getItemPosition(Object object) {
+        return PagerAdapter.POSITION_NONE;
+    }
 }

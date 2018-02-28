@@ -1,4 +1,4 @@
-package org.butter.calendar.calendar;
+package org.butter.calendar.calendar.month;
 
 /**
  *

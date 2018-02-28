@@ -10,7 +10,7 @@ import java.util.Calendar;
  *
  * Created by Butter on 2018/02/23.
  */
-class CalendarUtils {
+public class CalendarUtils {
 
     /**
      * 通过年份和月份 得到当月有多少天

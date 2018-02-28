@@ -10,9 +10,12 @@
     <declare-styleable name="MonthCalendarView">
         <attr name="month_past_text_color" format="color"/>
         <attr name="month_coming_text_color" format="color"/>
+        <attr name="month_previous_next_month_text_color" format="color"/>
         <attr name="month_color_accent" format="color"/>
         <attr name="month_text_size" format="integer"/>
         <attr name="month_today_bg_color" format="color"/>
+        <attr name="month_draw_previous_next_month" format="boolean"/>
+        <attr name="month_date_select" format="boolean"/>
     </declare-styleable>
 
 </resources>
