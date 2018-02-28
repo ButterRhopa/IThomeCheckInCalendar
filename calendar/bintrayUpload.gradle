@@ -60,6 +60,7 @@ bintray {
     user = properties.getProperty("bintray.user")
     key = properties.getProperty("bintray.apikey")
     configurations = ['archives']
+    override = true
     pkg {
         repo = "maven"
         name = "IThomeCheckInCalendar"    //发布到JCenter上的项目名字

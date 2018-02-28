@@ -22,6 +22,8 @@ import java.util.List;
 
 public class MonthCalendarView extends ViewPager {
 
+    private int test;
+
     static final int CHECK_IN_FLAG_SIZE = 11;
     static final int GIFT_BITMAP_SIZE = 30;
 
