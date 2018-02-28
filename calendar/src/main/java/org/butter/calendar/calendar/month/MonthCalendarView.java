@@ -43,6 +43,8 @@ public class MonthCalendarView extends ViewPager {
     private boolean mEnableDateSelect;
     private boolean mShowHint;
 
+    private boolean mDebug;
+
     public MonthCalendarView(Context context) {
         this(context, null);
     }
@@ -394,5 +396,13 @@ public class MonthCalendarView extends ViewPager {
                 monthView.invalidate();
             }
         }
+    }
+
+    public void setDebug(boolean debug) {
+        mDebug = debug;
+    }
+
+    public boolean isDebug() {
+        return mDebug;
     }
 }

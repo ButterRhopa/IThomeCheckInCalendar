@@ -46,6 +46,9 @@ class MonthAdapter extends PagerAdapter {
         if (mViews.get(position) == null) {
             int date[] = getYearAndMonth(position);
             MonthView monthView = new MonthView(mContext, date[0], date[1], mMonthCalendarView);
+            if (mMonthCalendarView.isDebug()) {
+                monthView.debugInit();
+            }
             monthView.setId(position);
             monthView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
             monthView.invalidate();

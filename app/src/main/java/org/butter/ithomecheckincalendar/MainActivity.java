@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mCalendar = findViewById(R.id.calendar);
+        mCalendar.setDebug(true);
         mCalendar.setOnCalendarListener(new OnCalendarListener() {
             @Override
             public void onDateClick(int year, int month, int day) {

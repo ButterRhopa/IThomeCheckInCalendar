@@ -52,8 +52,7 @@ class MonthView extends View {
     private List<Integer> mGiftList = new ArrayList<>();
     private List<Integer> mEventHintList;
 
-    // TODO: 2018/2/26 奶油测试
-    {
+    public void debugInit() {
         mCheckInList.add(1);
         mCheckInList.add(3);
         mCheckInList.add(7);
@@ -68,13 +67,11 @@ class MonthView extends View {
         mCheckInList.add(15);
         mCheckInList.add(16);
         mCheckInList.add(24);
-
         mGiftList.add(5);
         mGiftList.add(9);
         mGiftList.add(17);
         mGiftList.add(19);
         mGiftList.add(22);
-
         mEventHintList = new ArrayList<>();
         mEventHintList.add(1);
         mEventHintList.add(12);
