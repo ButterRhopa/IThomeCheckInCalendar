@@ -1,5 +1,6 @@
 package org.butter.ithomecheckincalendar;
 
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.RadioGroup;
@@ -18,11 +19,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mCalendar = findViewById(R.id.calendar);
-        mCalendar.setDebug(true);
         mCalendar.setOnCalendarListener(new OnCalendarListener() {
             @Override
-            public void onDateClick(int year, int month, int day) {
-                Toast.makeText(MainActivity.this, year + "-" + month + "-" + day, Toast.LENGTH_SHORT).show();
+            public void onDateClick(int year, int month, int day, boolean checked, boolean gift) {
+                String s = year + "-" + month + "-" + day;
+                if (checked) {
+                    s += "---已签到";
+                }
+                if (gift) {
+                    s += "---礼物盒";
+                }
+                Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -33,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         initOptions();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mCalendar.setCheckInData(3);
+            }
+        }, 1000);
     }
 
     private void initOptions() {

@@ -22,8 +22,6 @@ import java.util.List;
 
 public class MonthCalendarView extends ViewPager {
 
-    private int test;
-
     static final int CHECK_IN_FLAG_SIZE = 11;
     static final int GIFT_BITMAP_SIZE = 30;
 
@@ -123,10 +121,10 @@ public class MonthCalendarView extends ViewPager {
         mOnCalendarListener = onCalendarListener;
     }
 
-    void onClickThisMonth(int year, int month, int day) {
+    void onClickThisMonth(int year, int month, int day, boolean checked, boolean gift) {
         // 通知回调
         if (mOnCalendarListener != null) {
-            mOnCalendarListener.onDateClick(year, month + 1, day);
+            mOnCalendarListener.onDateClick(year, month + 1, day, checked, gift);
         }
     }
 

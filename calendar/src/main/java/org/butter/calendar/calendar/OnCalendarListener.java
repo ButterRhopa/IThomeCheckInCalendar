@@ -12,8 +12,10 @@ public interface OnCalendarListener {
      * @param year 年
      * @param month 月，注意是真实月份，无需再加1
      * @param day 日
+     * @param checked 点击日期是否已签到
+     * @param gift 点击日期是否为特殊图片(礼物盒)日期
      */
-    void onDateClick(int year, int month, int day);
+    void onDateClick(int year, int month, int day, boolean checked, boolean gift);
 
     /**
      *

@@ -181,7 +181,7 @@ class MonthView extends View {
             invalidate();
         }
         // 通知上层的MonthCalendarView
-        mCalendarView.onClickThisMonth(year, month, day);
+        mCalendarView.onClickThisMonth(year, month, day, mCheckInList.contains(day), mGiftList.contains(day));
     }
 
     @Override
@@ -403,7 +403,7 @@ class MonthView extends View {
 
     public void setCheckInData(int data) {
         for (int i = 1; i <= 31; i++) {
-            boolean checked = (data & (2 ^ (i - 1))) > 0;
+            boolean checked = (data & (int) Math.pow(2, i - 1)) > 0;
             if (checked) {
                 mCheckInList.add(i);
             }
@@ -422,7 +422,7 @@ class MonthView extends View {
 
     public void setGiftData(int data) {
         for (int i = 1; i <= 31; i++) {
-            boolean checked = (data & (2 ^ (i - 1))) > 0;
+            boolean checked = (data & (int) Math.pow(2, i - 1)) > 0;
             if (checked) {
                 mGiftList.add(i);
             }
