@@ -41,6 +41,7 @@ public class MonthCalendarView extends ViewPager {
     private Bitmap mNormalGiftOpenBitmap;
     private boolean mDrawPreviousNextMonth;
     private boolean mEnableDateSelect;
+    private boolean mDrawMonthInFirstDay;
     private boolean mShowHint;
 
     private boolean mDebug;
@@ -69,6 +70,7 @@ public class MonthCalendarView extends ViewPager {
         mTodayBGColor = array.getColor(R.styleable.MonthCalendarView_month_today_bg_color, Color.parseColor("#e8e8e8"));
         mDrawPreviousNextMonth = array.getBoolean(R.styleable.MonthCalendarView_month_draw_previous_next_month, false);
         mEnableDateSelect = array.getBoolean(R.styleable.MonthCalendarView_month_date_select, false);
+        mDrawMonthInFirstDay = array.getBoolean(R.styleable.MonthCalendarView_month_draw_month_in_first_day, false);
         array.recycle();
 
         int size = CalendarUtils.dip2px(getContext(), GIFT_BITMAP_SIZE);
@@ -95,6 +97,8 @@ public class MonthCalendarView extends ViewPager {
                         int month = monthView.getMonth();
 
                         mOnCalendarListener.onMonthChange(mSelectYear, mSelectMonth + 1, year, month + 1);
+                        mSelectYear = year;
+                        mSelectMonth = month;
                     }
                 }
             }
@@ -245,6 +249,10 @@ public class MonthCalendarView extends ViewPager {
         return mShowHint;
     }
 
+    boolean isDrawMonthInFirstDay() {
+        return mDrawMonthInFirstDay;
+    }
+
     public void setCheckInData(int data) {
         MonthView monthView = getCurrentMonthView();
         if (monthView != null) {
@@ -265,6 +273,18 @@ public class MonthCalendarView extends ViewPager {
         if (monthView != null) {
             monthView.setEventHintList(eventHintList);
         }
+    }
+
+    /**
+     * 回到今日所在月份
+     */
+    public void backToToday() {
+        Calendar c = Calendar.getInstance();
+        int cYear = c.get(Calendar.YEAR);
+        int cMonth = c.get(Calendar.MONTH);
+
+        int interval = CalendarUtils.getMonthsAgo(mSelectYear, mSelectMonth, cYear, cMonth);
+        setCurrentItem(getCurrentItem() + interval, true);
     }
 
     public void setShowHint(boolean show) {
@@ -389,6 +409,17 @@ public class MonthCalendarView extends ViewPager {
 
     public void setEnableDateSelect(boolean enableDateSelect) {
         mEnableDateSelect = enableDateSelect;
+
+        for (int i = 0; i < getChildCount(); i++) {
+            MonthView monthView = (MonthView) getChildAt(i);
+            if (monthView != null) {
+                monthView.invalidate();
+            }
+        }
+    }
+
+    public void setDrawMonthInFirstDay(boolean drawMonthInFirstDay) {
+        mDrawMonthInFirstDay = drawMonthInFirstDay;
 
         for (int i = 0; i < getChildCount(); i++) {
             MonthView monthView = (MonthView) getChildAt(i);

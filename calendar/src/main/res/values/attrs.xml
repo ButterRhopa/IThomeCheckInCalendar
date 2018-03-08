@@ -16,6 +16,7 @@
         <attr name="month_today_bg_color" format="color"/>
         <attr name="month_draw_previous_next_month" format="boolean"/>
         <attr name="month_date_select" format="boolean"/>
+        <attr name="month_draw_month_in_first_day" format="boolean"/>
     </declare-styleable>
 
 </resources>

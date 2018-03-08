@@ -17,88 +17,117 @@
         android:layout_width="match_parent"
         android:layout_height="240dp"/>
 
-    <TextView
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="是否显示前、后一个月日期"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp">
 
-    <RadioGroup
-        android:id="@+id/rg_showPreviousNextMonth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/rb_showPreviousNextMonth_enable"
+        <LinearLayout
+            android:id="@+id/ll1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="显示"/>
+            android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/rb_showPreviousNextMonth_disable"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="是否显示前、后一个月日期"/>
+
+            <RadioGroup
+                android:id="@+id/rg_showPreviousNextMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_showPreviousNextMonth_enable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="显示"/>
+
+                <RadioButton
+                    android:id="@+id/rb_showPreviousNextMonth_disable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="不显示"
+                    android:layout_marginLeft="40dp"/>
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="是否可以选中日期"
+                android:layout_marginTop="20dp"/>
+
+            <RadioGroup
+                android:id="@+id/rg_drawSelectCircle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_drawSelectCircle_enable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="可以"/>
+
+                <RadioButton
+                    android:id="@+id/rb_drawSelectCircle_disable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="不可以"
+                    android:layout_marginLeft="40dp"/>
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="是否显示事件提示"
+                android:layout_marginTop="20dp"/>
+
+            <RadioGroup
+                android:id="@+id/rg_showHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_showHint_enable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="显示"/>
+
+                <RadioButton
+                    android:id="@+id/rb_showHint_disable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="不显示"
+                    android:layout_marginLeft="40dp"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="不显示"
-            android:layout_marginLeft="40dp"/>
+            android:orientation="vertical"
+            android:layout_toRightOf="@+id/ll1"
+            android:layout_marginLeft="10dp">
 
-    </RadioGroup>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="回到今日"
+                android:onClick="backToToday"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="是否可以选中日期"
-        android:layout_marginTop="20dp"/>
+        </LinearLayout>
 
-    <RadioGroup
-        android:id="@+id/rg_drawSelectCircle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/rb_drawSelectCircle_enable"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="可以"/>
-
-        <RadioButton
-            android:id="@+id/rb_drawSelectCircle_disable"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="不可以"
-            android:layout_marginLeft="40dp"/>
-
-    </RadioGroup>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="是否显示事件提示"
-        android:layout_marginTop="20dp"/>
-
-    <RadioGroup
-        android:id="@+id/rg_showHint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/rb_showHint_enable"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="显示"/>
-
-        <RadioButton
-            android:id="@+id/rb_showHint_disable"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="不显示"
-            android:layout_marginLeft="40dp"/>
-
-    </RadioGroup>
+    </RelativeLayout>
 
 </LinearLayout>

@@ -3,6 +3,7 @@ package org.butter.ithomecheckincalendar;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -93,5 +94,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void backToToday(View view) {
+        mCalendar.backToToday();
     }
 }

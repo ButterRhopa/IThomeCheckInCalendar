@@ -330,7 +330,7 @@ class MonthView extends View {
                 canvas.drawBitmap(bm, startX, startY, mPaint);
             } else {
                 // 如果是1号，则该位置显示本月月份(如"2月")
-                if (day == 1) {
+                if (day == 1 && mCalendarView.isDrawMonthInFirstDay()) {
                     String s = (mMonth + 1) + "月";
                     startX = (int) (mColumnWidth * column + (mColumnWidth - mPaint.measureText(s)) / 2);
                     canvas.drawText((mMonth + 1) + "月", startX, startY, mPaint);
@@ -402,6 +402,8 @@ class MonthView extends View {
     }
 
     public void setCheckInData(int data) {
+        mCheckInList.clear();
+
         for (int i = 1; i <= 31; i++) {
             boolean checked = (data & (int) Math.pow(2, i - 1)) > 0;
             if (checked) {
@@ -421,6 +423,8 @@ class MonthView extends View {
     }
 
     public void setGiftData(int data) {
+        mGiftList.clear();
+
         for (int i = 1; i <= 31; i++) {
             boolean checked = (data & (int) Math.pow(2, i - 1)) > 0;
             if (checked) {
