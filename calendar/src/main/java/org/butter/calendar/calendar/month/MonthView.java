@@ -363,7 +363,11 @@ class MonthView extends View {
         if (mCalendarView.getCheckInFlagBitmap() != null) {
             circleX = circleX - size / 2 - 5;
             circleY = circleY - size + 5;
+            if (mCalendarView.getFlagGiftImgAlpha() < 1f) {
+                mPaint.setAlpha((int) (mCalendarView.getFlagGiftImgAlpha() * 255f));
+            }
             canvas.drawBitmap(mCalendarView.getCheckInFlagBitmap(), circleX, circleY, mPaint);
+            mPaint.setAlpha(255);
         }
     }
 

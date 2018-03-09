@@ -22,7 +22,7 @@ import java.util.List;
 
 public class MonthCalendarView extends ViewPager {
 
-    static final int CHECK_IN_FLAG_SIZE = 11;
+    static final int CHECK_IN_FLAG_SIZE = 10;
     static final int GIFT_BITMAP_SIZE = 30;
 
     private MonthAdapter mMonthAdapter;
@@ -43,6 +43,7 @@ public class MonthCalendarView extends ViewPager {
     private boolean mEnableDateSelect;
     private boolean mDrawMonthInFirstDay;
     private boolean mShowHint;
+    private float mFlagGiftImgAlpha = 1.0f;
 
     private boolean mDebug;
 
@@ -253,6 +254,10 @@ public class MonthCalendarView extends ViewPager {
         return mDrawMonthInFirstDay;
     }
 
+    float getFlagGiftImgAlpha() {
+        return mFlagGiftImgAlpha;
+    }
+
     public void setCheckInData(int data) {
         MonthView monthView = getCurrentMonthView();
         if (monthView != null) {
@@ -429,11 +434,93 @@ public class MonthCalendarView extends ViewPager {
         }
     }
 
+    public void setFlagGiftImgAlpha(float flagGiftImgAlpha) {
+        mFlagGiftImgAlpha = flagGiftImgAlpha;
+
+        for (int i = 0; i < getChildCount(); i++) {
+            MonthView monthView = (MonthView) getChildAt(i);
+            if (monthView != null) {
+                monthView.invalidate();
+            }
+        }
+    }
+
     public void setDebug(boolean debug) {
         mDebug = debug;
     }
 
     public boolean isDebug() {
         return mDebug;
+    }
+
+    public final class ThemeBuilder {
+
+        private ThemeBuilder() {
+        }
+
+        public void setPastTextColor(int pastTextColor) {
+            mPastTextColor = pastTextColor;
+        }
+
+        public void setComingTextColor(int comingTextColor) {
+            mComingTextColor = comingTextColor;
+        }
+
+        public void setColorAccent(int colorAccent) {
+            mColorAccent = colorAccent;
+        }
+
+        public void setTextSize(int textSize) {
+            mTextSize = textSize;
+        }
+
+        public void setTodayBGColor(int todayBGColor) {
+            mTodayBGColor = todayBGColor;
+        }
+
+        public void setNormalGiftBitmap(Bitmap normalGiftBitmap) {
+            mNormalGiftBitmap = normalGiftBitmap;
+        }
+
+        public void setNormalGiftOpenBitmap(Bitmap normalGiftOpenBitmap) {
+            mNormalGiftOpenBitmap = normalGiftOpenBitmap;
+        }
+
+        public void setCheckInFlagBitmap(Bitmap checkInFlagBitmap) {
+            mCheckInFlagBitmap = checkInFlagBitmap;
+        }
+
+        public void setDrawPreviousNextMonth(boolean drawPreviousNextMonth) {
+            mDrawPreviousNextMonth = drawPreviousNextMonth;
+        }
+
+        public void setPreviousNextMonthTextColor(int previousNextMonthTextColor) {
+            mPreviousNextMonthTextColor = previousNextMonthTextColor;
+        }
+
+        public void setEnableDateSelect(boolean enableDateSelect) {
+            mEnableDateSelect = enableDateSelect;
+        }
+
+        public void setDrawMonthInFirstDay(boolean drawMonthInFirstDay) {
+            mDrawMonthInFirstDay = drawMonthInFirstDay;
+        }
+
+        public void setFlagGiftImgAlpha(float flagGiftImgAlpha) {
+            mFlagGiftImgAlpha = flagGiftImgAlpha;
+        }
+
+        public void build() {
+            for (int i = 0; i < getChildCount(); i++) {
+                MonthView monthView = (MonthView) getChildAt(i);
+                if (monthView != null) {
+                    monthView.invalidate();
+                }
+            }
+        }
+    }
+
+    public ThemeBuilder getThemeBuilder() {
+        return new ThemeBuilder();
     }
 }
