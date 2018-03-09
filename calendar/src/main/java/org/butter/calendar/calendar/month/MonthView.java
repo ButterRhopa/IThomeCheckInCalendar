@@ -327,7 +327,11 @@ class MonthView extends View {
                 Bitmap bm = mCheckInList.contains(day) ? mCalendarView.getNormalGiftOpenBitmap() : mCalendarView.getNormalGiftBitmap();
                 startX = mColumnWidth * column + (mColumnWidth - bm.getWidth()) / 2;
                 startY = mRowHeight * row + mRowHeight / 2 - bm.getHeight() / 2;
+                if (mCalendarView.getFlagGiftImgAlpha() < 1f) {
+                    mPaint.setAlpha((int) (mCalendarView.getFlagGiftImgAlpha() * 255f));
+                }
                 canvas.drawBitmap(bm, startX, startY, mPaint);
+                mPaint.setAlpha(255);
             } else {
                 // 如果是1号，则该位置显示本月月份(如"2月")
                 if (day == 1 && mCalendarView.isDrawMonthInFirstDay()) {
