@@ -458,56 +458,69 @@ public class MonthCalendarView extends ViewPager {
         private ThemeBuilder() {
         }
 
-        public void setPastTextColor(int pastTextColor) {
+        public ThemeBuilder setPastTextColor(int pastTextColor) {
             mPastTextColor = pastTextColor;
+            return this;
         }
 
-        public void setComingTextColor(int comingTextColor) {
+        public ThemeBuilder setComingTextColor(int comingTextColor) {
             mComingTextColor = comingTextColor;
+            return this;
         }
 
-        public void setColorAccent(int colorAccent) {
+        public ThemeBuilder setColorAccent(int colorAccent) {
             mColorAccent = colorAccent;
+            return this;
         }
 
-        public void setTextSize(int textSize) {
+        public ThemeBuilder setTextSize(int textSize) {
             mTextSize = textSize;
+            return this;
         }
 
-        public void setTodayBGColor(int todayBGColor) {
+        public ThemeBuilder setTodayBGColor(int todayBGColor) {
             mTodayBGColor = todayBGColor;
+            return this;
         }
 
-        public void setNormalGiftBitmap(Bitmap normalGiftBitmap) {
+        public ThemeBuilder setNormalGiftBitmap(Bitmap normalGiftBitmap) {
             mNormalGiftBitmap = normalGiftBitmap;
+            return this;
         }
 
-        public void setNormalGiftOpenBitmap(Bitmap normalGiftOpenBitmap) {
+        public ThemeBuilder setNormalGiftOpenBitmap(Bitmap normalGiftOpenBitmap) {
             mNormalGiftOpenBitmap = normalGiftOpenBitmap;
+            return this;
         }
 
-        public void setCheckInFlagBitmap(Bitmap checkInFlagBitmap) {
+        public ThemeBuilder setCheckInFlagBitmap(Bitmap checkInFlagBitmap) {
             mCheckInFlagBitmap = checkInFlagBitmap;
+            return this;
         }
 
-        public void setDrawPreviousNextMonth(boolean drawPreviousNextMonth) {
+        public ThemeBuilder setDrawPreviousNextMonth(boolean drawPreviousNextMonth) {
             mDrawPreviousNextMonth = drawPreviousNextMonth;
+            return this;
         }
 
-        public void setPreviousNextMonthTextColor(int previousNextMonthTextColor) {
+        public ThemeBuilder setPreviousNextMonthTextColor(int previousNextMonthTextColor) {
             mPreviousNextMonthTextColor = previousNextMonthTextColor;
+            return this;
         }
 
-        public void setEnableDateSelect(boolean enableDateSelect) {
+        public ThemeBuilder setEnableDateSelect(boolean enableDateSelect) {
             mEnableDateSelect = enableDateSelect;
+            return this;
         }
 
-        public void setDrawMonthInFirstDay(boolean drawMonthInFirstDay) {
+        public ThemeBuilder setDrawMonthInFirstDay(boolean drawMonthInFirstDay) {
             mDrawMonthInFirstDay = drawMonthInFirstDay;
+            return this;
         }
 
-        public void setFlagGiftImgAlpha(float flagGiftImgAlpha) {
+        public ThemeBuilder setFlagGiftImgAlpha(float flagGiftImgAlpha) {
             mFlagGiftImgAlpha = flagGiftImgAlpha;
+            return this;
         }
 
         public void build() {
