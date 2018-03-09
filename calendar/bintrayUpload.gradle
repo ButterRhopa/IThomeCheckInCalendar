@@ -1,7 +1,7 @@
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 // This is the library version used when deploying the artifact
-version = "0.1.5"
+version = "0.2.0"
 
 def siteUrl = 'https://github.com/ButterRhopa/IThomeCheckInCalendar'      // 项目的主页
 def gitUrl = 'https://github.com/ButterRhopa/IThomeCheckInCalendar.git'   // Git仓库的url
